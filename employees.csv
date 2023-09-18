@@ -1,0 +1,6 @@
+employee_id,shift_availability,absenteeism
+E001,Day,Low
+E002,Night,Medium
+E003,Day,High
+E004,Day,Low
+E005,Night,Low
