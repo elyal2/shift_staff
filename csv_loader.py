@@ -34,6 +34,7 @@ class CSVLoader:
             reader = csv.reader(file)
             next(reader)  # Skip the header
             for row in reader:
-                job_id, skill = row
-                job_positions.append(JobPosition(job_id, skill))
+                job_id, skills = row
+                required_skills = skills.split(",")  # Split the skills by comma
+                job_positions.append(JobPosition(job_id, required_skills))
         return job_positions

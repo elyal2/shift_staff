@@ -43,27 +43,46 @@ class Scheduler:
     def schedule(self):
         # Sort employees by absenteeism (lower is better)
         self.employees.sort(key=attrgetter('absenteeism'))
+        print('Employees sorted by absenteeism:')
+        for employee in self.employees:
+            print(f'\t{employee.id} ({employee.absenteeism})')
 
         # Create a dictionary to store the schedule
         schedule = {}
 
+        # Create a list to store employees who have been assigned to a job
+        assigned_employees = []
+
         # Iterate over each job position
         for job in self.job_positions:
+            print(f'Considering job {job.id}:')
+            print(f'\tJob requirements: {", ".join(job.get_required_skills())}')
             # Iterate over each employee
             for employee in self.employees:
+                print(f'\tChecking employee {employee.id}:')
+                print(f'\t\tEmployee skills: {", ".join(employee.skills)}')
+                print(f'\t\tEmployee shift availability: {employee.shift_availability}')
                 # Check if the employee is suitable for the job and is available
                 if job.is_suitable_for_employee(employee) and employee.is_available(job.id):
+                    print(f'\t\t{employee.id} is suitable and available')
                     # If the job is not in the schedule, add it
                     if job.id not in schedule:
                         schedule[job.id] = []
                     # Add the employee to the job in the schedule
                     schedule[job.id].append(employee.id)
-                    # Remove the employee from the list of available employees
-                    self.employees.remove(employee)
+                    print(f'\t\tAdded {employee.id} to job {job.id}')
+                    # Add the employee to the list of assigned employees
+                    assigned_employees.append(employee)
                     # Break the loop as the job is filled
                     break
-        return schedule
+            else:
+                print(f'\tNo suitable employees found for job {job.id}')
 
+        # Remove assigned employees from the list of available employees
+        for employee in assigned_employees:
+            self.employees.remove(employee)
+
+        return schedule
     def simulated_annealing(self):
         # Initial solution
         current_schedule = self.schedule()
