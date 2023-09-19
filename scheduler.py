@@ -63,8 +63,10 @@ class Scheduler:
                 print(f'\t\tEmployee skills: {", ".join(employee.skills)}')
                 print(f'\t\tEmployee shift availability: {employee.shift_availability}')
                 # Check if the employee is suitable for the job and is available
-                if job.is_suitable_for_employee(employee) and employee.is_available(job.id):
-                    print(f'\t\t{employee.id} is suitable and available')
+                #if job.is_suitable_for_employee(employee) and employee.is_available(job.id):
+                    #print(f'\t\t{employee.id} is suitable and available')
+                if job.is_suitable_for_employee(employee):
+                    print(f'\t\t{employee.id} is suitable')
                     # If the job is not in the schedule, add it
                     if job.id not in schedule:
                         schedule[job.id] = []

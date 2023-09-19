@@ -14,6 +14,8 @@ class JobPosition:
 
     def is_suitable_for_employee(self, employee):
         for skill in self.required_skills:
+            print(f'Checking if employee has skill: {skill}')
             if not employee.has_skill(skill):
+                print(f'Employee does not have skill: {skill}')
                 return False
         return True
