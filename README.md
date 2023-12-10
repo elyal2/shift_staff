@@ -1,6 +1,7 @@
 # Basic sample of optimization
 
-*** Project Description: Shift Staff ***
+## Project Description: Shift Staff ##
+
 *Project Overview:*
 "Shift Staff" is a basic scheduling application designed to streamline the process of assigning employees to job positions in an efficient and effective manner. The application tackles the challenges of matching employee skills, certifications, and availability with the requirements of various job positions within an organization.
 
