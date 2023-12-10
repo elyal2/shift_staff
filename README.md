@@ -1,4 +1,5 @@
-To create this Python project, we will need several Python files to handle different aspects of the project. Here's a breakdown of the files we might need:
+# Basic sample of optimization
+
 1. `main.py`: This will be the main entry point of the application. It will call functions from other files and coordinate the overall flow of the application.
 2. `employee.py`: This file will contain the Employee class and related methods. It will handle loading employee data from the CSV file, and it will have methods to check an employee's certifications and availability.
 3. `job_position.py`: This file will contain the JobPosition class and related methods. It will handle loading job position data from the CSV file, and it will have methods to check the skills required for a job position.
